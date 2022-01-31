@@ -19,20 +19,20 @@
 
 			<section class="menu">
 				<h2>Menu</h2>
-				<div class="menu-item">
+				<div v-for="item in simpleMenu" class="menu-item">
 					<img
 						class="menu-item__image"
-						src="https://via.placeholder.com/300x150"
-						alt=""
+						v-bind:src="item.image.source"
+						v-bind:alt="item.image.alt"
 					/>
 					<div>
-						<h3>Nom de l'article</h3>
-						<p>En stock</p>
-						<p>En rupture de stock</p>
+						<h3>{{item.name}}</h3>
+						<p v-if="!item.inStock">En rupture de stock</p>
+						<p v-else>En stock</p>
 						<div>
-							<label for="add-item-quantity">Quantité :</label>
-							<input id="add-item-quantity" type="number" />
-							<button>Ajouter au panier d'achat</button>
+							<label for="add-item-quantity">Quantité : {{ item.quantity }}</label>
+							<input v-model.number="item.quantity" id="add-item-quantity" type="number"/>
+							<button v-on:click="addToShoppingCart(item.quantity)">Ajouter au panier d'achat</button>
 						</div>
 					</div>
 				</div>
@@ -67,6 +67,7 @@
 					email: "hello@cafewithavue.bakery",
 					phone: "01 88 88 88 88",
 					restaurantName: "La belle vue",
+					shoppingCart: 0,
 					simpleMenu: [
 						{
 							name: "Croissant",
@@ -95,13 +96,19 @@
 							inStock: false,
 							quantity: 1
 						}
-					]
+					],
 				},
 				computed: {
 					copyright() {
 						const currentYear = new Date().getFullYear()
 
 						return `Copyright ${this.restaurantName} ${currentYear}`
+					}
+				},
+				methods: {
+					addToShoppingCart(quantity) {
+						this.shoppingCart += quantity
+						console.log(this.shoppingCart);
 					}
 				}
 			})
