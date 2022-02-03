@@ -52,7 +52,7 @@ export default {
 						alt: "Un croissant"
 					},
 					inStock: true,
-					quantity: 1,
+					// quantity: 1,
 					price: 2.99
 				},
 				{
@@ -62,7 +62,7 @@ export default {
 						alt: "Quatre baguettes de pain"
 					},
 					inStock: true,
-					quantity: 1,
+					// quantity: 1,
 					price: 3.99
 				},
 				{
@@ -72,7 +72,7 @@ export default {
 						alt: "Éclair au chocolat"
 					},
 					inStock: false,
-					quantity: 1,
+					// quantity: 1,
 					price: 4.99
 				}
 			]
