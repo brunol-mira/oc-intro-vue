@@ -16,6 +16,7 @@
           :name="item.name"
           :image="item.image"
           :quantity="item.quantity"
+          :price="item.price"
           :inStock="item.inStock"
           :key="item.name"
       />
@@ -27,6 +28,7 @@
 
     <footer class="footer">
       <p>{{ copyright }}</p>
+      <button class="button">je suis un bouton</button>
     </footer>
   </div>
 </template>
@@ -51,7 +53,8 @@ export default {
             alt: "Un croissant"
           },
           inStock: true,
-          quantity: 1
+          quantity: 1,
+          price: 2
         },
         {
           name: "Baguette de pain",
@@ -60,7 +63,8 @@ export default {
             alt: "Quatre baguettes de pain"
           },
           inStock: true,
-          quantity: 1
+          quantity: 1,
+          price: 4
         },
         {
           name: "Éclair",
@@ -69,7 +73,8 @@ export default {
             alt: "Éclair au chocolat"
           },
           inStock: false,
-          quantity: 1
+          quantity: 1,
+          price: 6
         }
       ]
     }
@@ -89,7 +94,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -97,6 +102,36 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.button {
+  background-color: red;
+  color: white;
+  border-radius: 10px;
+}
+
+.description {
+  max-width: 960px;
+  font-size: 1.2rem;
+  margin: 0 auto;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.shopping-cart {
+  position: absolute;
+  right: 30px;
+  top: 0;
+}
+
+.footer {
+  font-style: italic;
+  text-align: center;
 }
 </style>
 
